@@ -1,5 +1,6 @@
 from app import db
 from models import Restaurant, RestaurantTable, User, Booking
+import email_notification
 
 
 def get_restaurants_list():
@@ -98,8 +99,6 @@ def verify_booking_slot(booking_details):
 
         expected_booking_time = int(booking_details["time"].replace(":", ""))
         existing_booking_time = int(booking.time.replace(":", ""))
-        print('check below')
-        print(same_date, expected_booking_time, existing_booking_time)
         if not(expected_booking_time <= existing_booking_time-100) and \
                 not(expected_booking_time >= existing_booking_time+100) and \
                 same_date:
@@ -131,6 +130,19 @@ def create_new_booking(booking_details):
         "is_paid": booking.is_paid,
         "bill": booking.bill
     }
+    subject = "Booking Confirmed!"
+    restaurant_table = RestaurantTable.query.get(booking.table)
+    restaurant = Restaurant.query.get(restaurant_table.restaurant).name
+    text = f"""
+    Congratulations {user.first_name}!
+
+    Your Booking has been confirmed for following:
+    Restaurant Name: {restaurant}  
+    Table: {restaurant_table.name}
+    Date: {booking_details['date']}
+    Time: {booking_details['time']}
+    """
+    email_notification.send(user.email, subject, text)
     return response
 
 
@@ -148,6 +160,7 @@ def book_table(booking_details):
         print(f'[INFO] Table size is less than the guest count!')
         response = {'status': 'failure',
                     'reason': 'Table size is less than the guest count!'}
+        return response
 
     # First check whether time is as per the restaurant
     booking_time = int(booking_details['time'].replace(":", ""))
@@ -160,6 +173,7 @@ def book_table(booking_details):
         print(f'[INFO] Restaurant is not available for the selected time!')
         response = {'status': 'failure',
                     'reason': 'Booking Time is out of restaurant Timings!'}
+        return response
 
     print(f'[INFO] Table Booking Status: {table.is_booked}')
     if table.is_booked:
