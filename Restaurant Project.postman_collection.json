@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "4a91385b-3661-4571-9280-e45f29c19014",
+		"name": "Restaurant Project",
+		"description": "Restaurant Booking Flask Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:5000/get_restaurants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/get_restaurants",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get_restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/create_restaurants",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\"name\": \"rest1\",\n\t\"address\": \"address1\",\n\t\"opened_at\": \"10:00\",\n\t\"closed_at\": \"22:00\"\n\t},\n\t{\n\t\"name\": \"rest2\",\n\t\"address\": \"address2\",\n\t\"opened_at\": \"10:00\",\n\t\"closed_at\": \"23:00\"\n\t},\n\t{\n\t\"name\": \"rest3\",\n\t\"address\": \"address3\",\n\t\"opened_at\": \"10:00\",\n\t\"closed_at\": \"23:00\"\n\t},\n\t{\n\t\"name\": \"rest4\",\n\t\"address\": \"address4\",\n\t\"opened_at\": \"10:00\",\n\t\"closed_at\": \"23:00\"\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/create_restaurants",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"create_restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/create_tables",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"restaurant\": 1,\n\t\t\"name\": \"table1\",\n\t\t\"size\": 2\n\t},\n\t{\n\t\t\"restaurant\": 2,\n\t\t\"name\": \"table2\",\n\t\t\"size\": 4\n\t},\n\t{\n\t\t\"restaurant\": 2,\n\t\t\"name\": \"table3\",\n\t\t\"size\": 4\n\t},\n\t{\n\t\t\"restaurant\": 3,\n\t\t\"name\": \"table1\",\n\t\t\"size\": 2\n\t},\n\t{\n\t\t\"restaurant\": 3,\n\t\t\"name\": \"table2\",\n\t\t\"size\": 4\n\t},\n\t{\n\t\t\"restaurant\": 3,\n\t\t\"name\": \"table3\",\n\t\t\"size\": 4\n\t},\n\t{\n\t\t\"restaurant\": 4,\n\t\t\"name\": \"table2\",\n\t\t\"size\": 4\n\t},\n\t{\n\t\t\"restaurant\": 4,\n\t\t\"name\": \"table3\",\n\t\t\"size\": 4\n\t}\n\t\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/create_tables",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"create_tables"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/get_tables",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\"restaurant\": 1\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/get_tables",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get_tables"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/book_table",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"guest_details\": {\n\t\t\"first_name\": \"Prasad\",\n\t\t\"last_name\": \"Dalavi\",\n\t\t\"email\": \"prasad01dalavi@gmail.com\",\n\t\t\"phone_number\": \"8983050328\",\n\t\t\"registration\": false\n\t},\n\t\"time\": \"19:00\",\n\t\"date\": \"2020-03-16\",\n\t\"guest_count\": 2,\n\t\"table\": 2,\n\t\"selected_menu\":[4]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/book_table",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"book_table"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\": \"Prasad\",\n\t\"last_name\": \"Dalavi\",\n\t\"email\": \"personal\",\n\t\"phone_number\": \"8983050324\",\n\t\"registration\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/create_menu",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"name\": \"menu1\",\n\t\t\"restaurant\": 1,\n\t\t\"price\": 50\n\t},\t\n\t{\n\t\t\"name\": \"menu2\",\n\t\t\"restaurant\": 1,\n\t\t\"price\": 50\n\t},\t\n\t{\n\t\t\"name\": \"menu3\",\n\t\t\"restaurant\": 1,\n\t\t\"price\": 50\n\t},\n\t{\n\t\t\"name\": \"menu1\",\n\t\t\"restaurant\": 2,\n\t\t\"price\": 50\n\t},\t\n\t{\n\t\t\"name\": \"menu2\",\n\t\t\"restaurant\": 2,\n\t\t\"price\": 50\n\t},\t\n\t{\n\t\t\"name\": \"menu3\",\n\t\t\"restaurant\": 2,\n\t\t\"price\": 50\n\t},\t\n\t{\n\t\t\"name\": \"menu1\",\n\t\t\"restaurant\": 3,\n\t\t\"price\": 50\n\t},\t\n\t{\n\t\t\"name\": \"menu1\",\n\t\t\"restaurant\": 4,\n\t\t\"price\": 50\n\t}\n\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/create_menu",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"create_menu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/get_menu",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"restaurant\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/get_menu",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get_menu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/get_bookings",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/get_bookings",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get_bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/pay_bill",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"booking\": 4,\n\t\"amount\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/pay_bill",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"pay_bill"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
