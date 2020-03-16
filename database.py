@@ -4,6 +4,9 @@ import email_notification
 
 
 def get_restaurants_list():
+    """
+    Get Restaurant List for search
+    """
     restaurant_list = []
     restaurants = Restaurant.query.all()
     for restaurant in restaurants:
@@ -58,7 +61,7 @@ def create_user(user_details):
     """
     Create new user if it's not present
     """
-    user = User.query.filter_by(phone_number=user_details['phone_number'],
+    user = User.query.filter_by(email=user_details['email'],
                                 is_registered=True).first()
     # if user is already present then return its details
     if user:
@@ -106,6 +109,11 @@ def get_menu(restaurant):
 
 
 def verify_booking_slot(booking_details):
+    """
+    Verify whether following things are available for new booking
+    1. Table availability
+    2. Date Time slot for booking
+    """
     # Check for the date and time on which the booking is not done already
     table_bookings = Booking.query.filter(
         Booking.table == booking_details['table'])
@@ -133,6 +141,12 @@ def verify_booking_slot(booking_details):
 
 
 def create_new_booking(booking_details):
+    """
+    Create New Booking and Notify User by E-mail
+    Also do the following things:
+    1. Create User entry in User Table
+    2. Create Billing Entry if menu has been selected already while booking
+    """
     print(f'[INFO] Creating new booking for this request!')
     # Create User entry in User Table
     user, status = create_user(booking_details['guest_details'])
@@ -184,11 +198,14 @@ def create_new_booking(booking_details):
 
 def book_table(booking_details):
     """
-    1. Check for expected table size
-    2. Check whether already booked
-    3. Check booking date time
-    4. Create User entry in User Table
-    5. Create Booking entry in Booking Table
+    Book Table after doing following:
+    1. Requested Guest Size is matching with the existing tables size
+       in the restaurant
+    2. Verify the booking time is within the Restaurant Opened Timings
+    3. Table availability
+    4. Date Time slot for booking
+    5. Create User entry in User Table
+    6. Create Billing Entry if menu has been selected already while booking
     """
     table = RestaurantTable.query.get(booking_details['table'])
     # Check for expected and available table size
@@ -272,4 +289,37 @@ def pay_bill(billing):
             "status": "failure",
             "reason": "could not find requested booking"
         }
+    return response
+
+
+def verify_user(github_details):
+    """
+    Check whether User has already registered
+    Else Create New entry in User Table with whatever data received from Github
+    """
+    user = User.query.filter_by(email=github_details['email']).first()
+    if user:
+        response = {
+            "id": user.id,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "email": user.email,
+            "phone_number": user.phone_number,
+            "status": "success",
+            "reason": "Log In Successful!"
+        }
+    else:
+        user_details = {
+            "first_name": github_details['name'].split(" ")[0],
+            "last_name": github_details['name'].split(" ")[1],
+            "email": github_details['email'],
+            "phone_number": "",
+            "registration": True
+        }
+        _, registration_done = create_user(user_details)
+        if registration_done:
+            user_details['status'] = 'success'
+            user_details['reason'] = 'Registration Successful!'
+            response = user_details
+
     return response

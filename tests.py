@@ -143,6 +143,25 @@ class FlaskrTestCase(unittest.TestCase):
             "Paying Bill Failed!")
         logging.info("Pay Bill Tested!")
 
+    def test_simple_registration(self):
+        """
+        Register New User
+        """
+        url = "/register"
+        data = {
+            "first_name": "Prasad",
+            "last_name": "Dalavi",
+            "email": "personal-2",
+            "phone_number": "8983050329",
+            "registration": True
+        }
+        response = app.test_client().post(url,
+                                          json=data,
+                                          content_type='application/json')
+        assert response.status_code == 200, logging.error(
+            "User Registration Failed!")
+        logging.info("User Registration Tested!")
+
 
 if __name__ == '__main__':
     unittest.main()
