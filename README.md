@@ -7,7 +7,8 @@ Flask Microservices
 pip install -r requirements.txt
 
 # Connect Flask Models to Mysql Database
-1. Go into the Interpreter and run the following commands to get tables in restaurant_db:
+Go into the Interpreter and run the following commands to get tables in restaurant_db:
+
 from app import db
 db.create_all()
 ```
