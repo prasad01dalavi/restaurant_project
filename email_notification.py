@@ -1,8 +1,8 @@
 import smtplib
 
 
-sender = "prasad01dalavi@gmail.com"
-password = ''
+sender = ""     # sender email id
+password = ""   # sender password
 
 
 def send(receiver, subject, text):

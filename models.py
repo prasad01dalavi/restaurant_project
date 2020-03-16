@@ -31,7 +31,6 @@ class RestaurantTable(db.Model):
                            nullable=False)
     size = db.Column(db.Integer)
     is_booked = db.Column(db.Boolean, default=False, nullable=False)
-    selected_menu = db.Column(db.String(20), default="")  # comma seperated pks
 
 
 class User(db.Model):
@@ -79,3 +78,4 @@ class Booking(db.Model):
     bill = db.Column(db.Integer, default=0)
     date = db.Column(db.String(20))
     time = db.Column(db.String(20))
+    selected_menu = db.Column(db.String(20), default="")  # comma seperated pks

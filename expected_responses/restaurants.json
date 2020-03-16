@@ -1,0 +1,30 @@
+[
+    {
+      "address": "address1",
+      "closed_at": "23:00",
+      "id": 1,
+      "name": "rest1",
+      "opened_at": "10:00"
+    },
+    {
+      "address": "address2",
+      "closed_at": "23:00",
+      "id": 2,
+      "name": "rest2",
+      "opened_at": "10:00"
+    },
+    {
+      "address": "address3",
+      "closed_at": "23:00",
+      "id": 3,
+      "name": "rest3",
+      "opened_at": "10:00"
+    },
+    {
+      "address": "address4",
+      "closed_at": "23:00",
+      "id": 4,
+      "name": "rest4",
+      "opened_at": "10:00"
+    }
+  ]

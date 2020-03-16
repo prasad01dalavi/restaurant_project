@@ -1,0 +1,126 @@
+INFO: Line:38 2020-03-16 08:28:26,085 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:28:26,254 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:28:26,254 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:28:26,290 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:28:26,290 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:28:26,305 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:28:26,305 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:28:26,313 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:33:42,498 ==> [INFO] Setting Up!
+INFO: Line:128 2020-03-16 08:33:42,679 ==> Booking Table Tested!
+INFO: Line:38 2020-03-16 08:33:42,680 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:33:42,690 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:33:42,690 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:33:42,697 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:33:42,698 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:33:42,704 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:33:42,705 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:33:42,712 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:34:01,038 ==> [INFO] Setting Up!
+INFO: Line:128 2020-03-16 08:34:01,228 ==> Booking Table Tested!
+INFO: Line:38 2020-03-16 08:34:01,229 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:34:01,239 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:34:01,239 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:34:01,249 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:34:01,250 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:34:01,257 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:34:01,257 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:34:01,265 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:36:18,994 ==> [INFO] Setting Up!
+ERROR: Line:127 2020-03-16 08:36:19,194 ==> Booking Table Failed!
+INFO: Line:38 2020-03-16 08:36:19,197 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:36:19,210 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:36:19,211 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:36:19,227 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:36:19,228 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:36:19,241 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:36:19,242 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:36:19,249 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:36:32,561 ==> [INFO] Setting Up!
+INFO: Line:128 2020-03-16 08:36:32,695 ==> Booking Table Tested!
+INFO: Line:38 2020-03-16 08:36:32,695 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:36:32,701 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:36:32,701 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:36:32,707 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:36:32,707 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:36:32,713 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:36:32,713 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:36:32,719 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:36:36,478 ==> [INFO] Setting Up!
+ERROR: Line:127 2020-03-16 08:36:36,569 ==> Booking Table Failed!
+INFO: Line:38 2020-03-16 08:36:36,569 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:36:36,578 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:36:36,579 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:36:36,585 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:36:36,585 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:36:36,591 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:36:36,592 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:36:36,599 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:36:55,283 ==> [INFO] Setting Up!
+ERROR: Line:127 2020-03-16 08:36:55,453 ==> Booking Table Failed!
+INFO: Line:38 2020-03-16 08:36:55,455 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:36:55,462 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:36:55,462 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:36:55,472 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:36:55,473 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:36:55,486 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:36:55,487 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:36:55,498 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:37:06,411 ==> [INFO] Setting Up!
+INFO: Line:128 2020-03-16 08:37:06,575 ==> Booking Table Tested!
+INFO: Line:38 2020-03-16 08:37:06,575 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:37:06,581 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:37:06,582 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:37:06,592 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:37:06,592 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:37:06,599 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:37:06,599 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:37:06,608 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:44:07,278 ==> [INFO] Setting Up!
+ERROR: Line:127 2020-03-16 08:44:07,467 ==> Booking Table Failed!
+INFO: Line:38 2020-03-16 08:44:07,469 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:44:07,477 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:44:07,479 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:44:07,487 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:44:07,488 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:44:07,507 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:44:07,508 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:44:07,530 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:44:07,530 ==> [INFO] Setting Up!
+INFO: Line:144 2020-03-16 08:44:07,551 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:45:07,253 ==> [INFO] Setting Up!
+INFO: Line:128 2020-03-16 08:45:07,385 ==> Booking Table Tested!
+INFO: Line:38 2020-03-16 08:45:07,385 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:45:07,390 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:45:07,391 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:45:07,398 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:45:07,398 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:45:07,424 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:45:07,424 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:45:07,429 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:45:07,430 ==> [INFO] Setting Up!
+ERROR: Line:143 2020-03-16 08:45:07,438 ==> Paying Bill Failed!
+INFO: Line:38 2020-03-16 08:48:48,580 ==> [INFO] Setting Up!
+ERROR: Line:127 2020-03-16 08:48:48,751 ==> Booking Table Failed!
+INFO: Line:38 2020-03-16 08:48:48,751 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:48:48,760 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:48:48,761 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:48:48,766 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:48:48,767 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:48:48,771 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:48:48,772 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:48:48,780 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:48:48,780 ==> [INFO] Setting Up!
+ERROR: Line:143 2020-03-16 08:48:48,786 ==> Paying Bill Failed!
+INFO: Line:38 2020-03-16 08:49:09,861 ==> [INFO] Setting Up!
+ERROR: Line:127 2020-03-16 08:49:10,038 ==> Booking Table Failed!
+INFO: Line:38 2020-03-16 08:49:10,038 ==> [INFO] Setting Up!
+INFO: Line:101 2020-03-16 08:49:10,044 ==> GET Bookings Tested!
+INFO: Line:38 2020-03-16 08:49:10,045 ==> [INFO] Setting Up!
+INFO: Line:86 2020-03-16 08:49:10,051 ==> GET Menu Tested!
+INFO: Line:38 2020-03-16 08:49:10,052 ==> [INFO] Setting Up!
+INFO: Line:56 2020-03-16 08:49:10,059 ==> GET Restaurants API Tested
+INFO: Line:38 2020-03-16 08:49:10,059 ==> [INFO] Setting Up!
+INFO: Line:71 2020-03-16 08:49:10,066 ==> GET Tables Tested!
+INFO: Line:38 2020-03-16 08:49:10,067 ==> [INFO] Setting Up!
+INFO: Line:144 2020-03-16 08:49:10,090 ==> Pay Bill Tested!

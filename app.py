@@ -2,10 +2,15 @@ from flask import Flask, request, jsonify, make_response
 from flask_sqlalchemy import SQLAlchemy
 
 
+# MySQL Configerations
+mysql_user = "root"
+mysql_password = ""
+mysql_db = "restaurant_db"
+
 app = Flask(__name__)
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 app.config['SQLALCHEMY_DATABASE_URI'] =\
-    'mysql+pymysql://root:betheone@localhost:3306/restaurant_db'
+    f'mysql+pymysql://{mysql_user}:{mysql_password}@localhost:3306/{mysql_db}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -40,17 +45,41 @@ def create_tables():
     return make_response(jsonify(response), 200)
 
 
+@app.route('/create_menu', methods=['POST'])
+def create_menu():
+    menu_list = request.json
+    response = database.create_menu(menu_list)
+    return make_response(jsonify(response), 200)
+
+
 @app.route('/get_tables', methods=['POST'])
 def get_tables():
     restaurant = request.json['restaurant']
     response = database.get_tables(restaurant)
-    return make_response(jsonify(response), 200)
+    if response:
+        return make_response(jsonify(response), 200)
+    return make_response(
+        jsonify({"status": "failure", "reason": "couldnot find tables"}), 400
+    )
+
+
+@app.route('/get_menu', methods=['POST'])
+def get_menu():
+    restaurant = request.json['restaurant']
+    response = database.get_menu(restaurant)
+    if response:
+        return make_response(jsonify(response), 200)
+    return make_response(
+        jsonify({"status": "failure", "reason": "couldnot find menus"}), 400
+    )
 
 
 @app.route('/book_table', methods=['POST'])
 def book_table():
     booking_details = request.json
     response = database.book_table(booking_details)
+    if response['status'] == 'failure':
+        return make_response(jsonify(response), 400)
     return make_response(jsonify(response), 200)
 
 
@@ -72,6 +101,24 @@ def register():
             'is_registered': user.is_registered
         }
     return make_response(jsonify(response), 200)
+
+
+@app.route('/get_bookings', methods=['POST'])
+def get_bookings():
+    user = request.json['user']
+    response = database.get_bookings(user)
+    if response['status'] == 'success':
+        return make_response(jsonify(response), 200)
+    return make_response(jsonify(response), 400)
+
+
+@app.route('/pay_bill', methods=['POST'])
+def pay_bill():
+    billing = request.json
+    response = database.pay_bill(billing)
+    if response['status'] == "success":
+        return make_response(jsonify(response), 200)
+    return make_response(jsonify(response), 400)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 from app import db
-from models import Restaurant, RestaurantTable, User, Booking
+from models import Restaurant, RestaurantTable, User, Booking, Menu
 import email_notification
 
 
@@ -42,6 +42,18 @@ def create_table(table_list):
     return {'status': 'success', 'reason': 'tables created'}
 
 
+def create_menu(menu_list):
+    for menu in menu_list:
+        database_query = Menu(
+            name=menu['name'],
+            restaurant=menu['restaurant'],
+            price=menu['price'],
+        )
+        db.session.add(database_query)
+        db.session.commit()
+    return {'status': 'success', 'reason': 'menu created'}
+
+
 def create_user(user_details):
     """
     Create new user if it's not present
@@ -69,17 +81,28 @@ def create_user(user_details):
 
 def get_tables(restaurant):
     tables = RestaurantTable.query.filter(RestaurantTable.restaurant ==
-                                          restaurant and
-                                          RestaurantTable.is_booked == False)
+                                          restaurant)
     table_list = []
     for table in tables:
         table_list.append({
             "id": table.id,
             "name": table.name,
             "is_booked": table.is_booked,
-            "selected_menu": table.selected_menu
+            "size": table.size
         })
     return table_list
+
+
+def get_menu(restaurant):
+    menus = Menu.query.filter(Menu.restaurant == restaurant)
+    menus_list = []
+    for menu in menus:
+        menus_list.append({
+            "id": menu.id,
+            "name": menu.name,
+            "price": menu.price
+        })
+    return menus_list
 
 
 def verify_booking_slot(booking_details):
@@ -115,11 +138,22 @@ def create_new_booking(booking_details):
     user, status = create_user(booking_details['guest_details'])
     # Create Booking entry in Booking Table
     print(f'[INFO] Booking for User: {user.id}')
+    bill = 0
+    selected_menu = ""
+    # If menu is selected then only calculate bill
+    if booking_details['selected_menu']:
+        for menu in booking_details['selected_menu']:
+            price = Menu.query.get(menu).price
+            bill += price
+        selected_menu = ",".join(
+            str(x) for x in booking_details['selected_menu'])
     booking = Booking(
         user=user.id,
         table=booking_details['table'],
         date=booking_details['date'],
-        time=booking_details['time']
+        time=booking_details['time'],
+        bill=bill,
+        selected_menu=selected_menu
     )
     db.session.add(booking)
     db.session.commit()
@@ -128,7 +162,9 @@ def create_new_booking(booking_details):
         "user": booking.user,
         "table": booking.table,
         "is_paid": booking.is_paid,
-        "bill": booking.bill
+        "bill": booking.bill,
+        "status": "success",
+        "reason": "new booking created!"
     }
     subject = "Booking Confirmed!"
     restaurant_table = RestaurantTable.query.get(booking.table)
@@ -137,7 +173,7 @@ def create_new_booking(booking_details):
     Congratulations {user.first_name}!
 
     Your Booking has been confirmed for following:
-    Restaurant Name: {restaurant}  
+    Restaurant Name: {restaurant}
     Table: {restaurant_table.name}
     Date: {booking_details['date']}
     Time: {booking_details['time']}
@@ -180,12 +216,60 @@ def book_table(booking_details):
         print(f'[INFO] Table is already booked, Lets verify the date-time')
         response = verify_booking_slot(booking_details)
         if response['status'] == 'success':
-            response = create_new_booking(booking_details)
             table.is_booked = True
             db.session.commit()
+            response = create_new_booking(booking_details)
     else:
-        response = create_new_booking(booking_details)
+        print(f'[INFO] Table was not booked!')
         table.is_booked = True
         db.session.commit()
+        response = create_new_booking(booking_details)
+    return response
 
+
+def get_bookings(user):
+    booking = Booking.query.filter_by(user=user).first()
+    if booking:
+        response = {
+            "id": booking.id,
+            "user": booking.user,
+            "table": booking.table,
+            "bill": booking.bill,
+            "is_paid": booking.is_paid,
+            "date": booking.date,
+            "time": booking.time,
+            "status": "success",
+            "reason": "found bookings for the requested user"
+        }
+    else:
+        response = {
+            "status": "failure",
+            "reason": "couldnot find bookings for requested user"
+        }
+    return response
+
+
+def pay_bill(billing):
+    booking = Booking.query.get(billing['booking'])
+    if booking:
+        booking.bill = booking.bill - billing['amount']
+        if booking.bill <= 0:
+            booking.is_paid = True
+        db.session.commit()
+        response = {
+            "id": booking.id,
+            "user": booking.user,
+            "table": booking.table,
+            "bill": booking.bill,
+            "is_paid": booking.is_paid,
+            "date": booking.date,
+            "time": booking.time,
+            "status": "success",
+            "reason": "bill paid"
+        }
+    else:
+        response = {
+            "status": "failure",
+            "reason": "could not find requested booking"
+        }
     return response
