@@ -4,32 +4,15 @@ python -m unittest tests
 """
 
 from app import app
-# from application.models.job_profile import JobProfile
-# from application.models.job_posting import JobPosting
-# from application.models.match import Match
-# from mongoengine import *
-# from pymongo import MongoClient
-# from application import config
-# from bson import ObjectId
 import unittest
 import json
 import logging
-
-# database_name = config.db['name']
-# connect(database_name)
-# host = config.db['host']
-# port = config.db['port']
-# uri = host + ':' + str(port)
-
-# client = MongoClient(uri)
-# db = client[database_name]
 
 
 logging.basicConfig(level=logging.DEBUG,
                     filename='tests_logs.log',
                     filemode='a',
                     format='%(levelname)s: Line:%(lineno)d %(asctime)s ==> %(message)s')
-
 
 class FlaskrTestCase(unittest.TestCase):
 

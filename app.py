@@ -11,7 +11,6 @@ mysql_db = "restaurant_db"
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'thisissupposedtobeasecret'
-# app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 app.config['SQLALCHEMY_DATABASE_URI'] =\
     f'mysql+pymysql://{mysql_user}:{mysql_password}@localhost:3306/{mysql_db}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
